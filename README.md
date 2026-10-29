@@ -1,59 +1,42 @@
-# Global AI Job Market & Salary Trends 2025 Dashboard
+# AI Jobs Market Dashboard
 
-This project is a Streamlit dashboard for exploring global AI job market and salary trends across countries, experience levels, work modes, industries, skills, and posting years.
+An interactive Streamlit dashboard exploring how AI is changing the job market: salaries, experience levels, work modes, industries, in-demand skills and hiring trends over time.
 
-## Project Structure
+**Live demo:** _coming soon_
 
-- `src/app.py` - main Streamlit dashboard application
-- `data/ai_job_dataset.csv` - primary AI job market dataset
-- `data/ai_job_dataset1.csv` - supporting salary dataset
-- `requirements.txt` - Python packages required to run the dashboard
+## What it does
 
-## How to Run
+- Merges and cleans two AI job-market datasets
+- Shows headline KPIs for the current selection
+- Six chart types, with sidebar filters for country, experience level and posting year
+- Automatically generated insights that summarise the trends in the selected view
 
-Important: this is a Streamlit dashboard, so it should not be run using the normal VS Code "Run Python File" button. Running `src/app.py` directly may show `missing ScriptRunContext` warnings because Streamlit needs to start its own web server.
+## Tech stack
 
-Use the terminal commands below instead.
+Python, Pandas, Streamlit, Plotly
 
-Open a terminal in this project folder:
+## Project structure
 
-```powershell
-cd C:\Users\123sh\Desktop\Projects\DataVizCW2_Dashboard
+```
+src/app.py                  Streamlit dashboard
+data/ai_job_dataset.csv     Primary AI job market dataset
+data/ai_job_dataset1.csv    Supporting salary dataset
+requirements.txt            Python dependencies
 ```
 
-Create and activate a virtual environment:
+## Run it locally
 
-```powershell
+```bash
 python -m venv .venv
-.\.venv\Scripts\activate
-```
-
-Install the required packages:
-
-```powershell
+# Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
+streamlit run src/app.py
 ```
 
-Run the dashboard:
+The dashboard opens at http://localhost:8501.
 
-```powershell
-python -m streamlit run src/app.py
-```
+Run it with `streamlit run`, not `python src/app.py`. Streamlit needs to start its own web server.
 
-Do not run it like this:
+## Data
 
-```powershell
-python src/app.py
-```
-
-That command runs the file as a normal Python script instead of as a Streamlit web app.
-
-The dashboard will open in the browser, usually at:
-
-```text
-http://localhost:8501
-```
-
-## Notes
-
-Please keep the `data` folder in the project root. The dashboard loads the CSV files using paths relative to `src/app.py`, so it should work on another computer as long as the folder structure is not changed.
+Both datasets are public AI job-market datasets from Kaggle. Keep the `data` folder in the project root: the app loads the CSV files relative to `src/app.py`.
