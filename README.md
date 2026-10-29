@@ -6,10 +6,10 @@ An interactive Streamlit dashboard exploring how AI is changing the job market: 
 
 ## What it does
 
-- Merges and cleans two AI job-market datasets
-- Shows headline KPIs for the current selection
-- Six chart types, with sidebar filters for country, experience level and posting year
-- Automatically generated insights that summarise the trends in the selected view
+- Headline numbers (postings, median salary, countries, remote share) and plain-language takeaways that update with the filters
+- Four tabs: **Salaries**, **Roles & skills**, **Industries & trends**, and **Data** (a searchable table with CSV download)
+- Sidebar filters for country, experience level, work mode and posting year; an empty filter means "include everything"
+- One consistent, colour-blind-safe chart style across every view
 
 ## Tech stack
 
@@ -18,9 +18,11 @@ Python, Pandas, Streamlit, Plotly
 ## Project structure
 
 ```
-src/app.py                  Streamlit dashboard
-data/ai_job_dataset.csv     Primary AI job market dataset
-data/ai_job_dataset1.csv    Supporting salary dataset
+src/app.py                  Page layout, filters, KPIs and takeaways
+src/charts.py               Chart builders and the shared chart style
+.streamlit/config.toml      App theme
+data/ai_job_dataset.csv     AI job postings dataset used by the app
+data/ai_job_dataset1.csv    Second sample from the same source (not used by the app)
 requirements.txt            Python dependencies
 ```
 
@@ -39,4 +41,4 @@ Run it with `streamlit run`, not `python src/app.py`. Streamlit needs to start i
 
 ## Data
 
-Both datasets are public AI job-market datasets from Kaggle. Keep the `data` folder in the project root: the app loads the CSV files relative to `src/app.py`.
+Both files are public AI job-market datasets from Kaggle. The app uses `ai_job_dataset.csv` (15,000 postings, Jan 2024 – Apr 2025). The second file lists different jobs under the same IDs, so the two can't be joined row by row. Keep the `data` folder in the project root: the app loads the CSV files relative to `src/app.py`.
