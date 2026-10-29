@@ -2,7 +2,7 @@
 
 An interactive Streamlit dashboard exploring how AI is changing the job market: salaries, experience levels, work modes, industries, in-demand skills and hiring trends over time.
 
-**Live demo:** _coming soon_
+**Live demo:** https://ai-jobs-dashboard-i5zatt46vkovdwln3veuw9.streamlit.app/
 
 ## What it does
 
